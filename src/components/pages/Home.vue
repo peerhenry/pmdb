@@ -1,5 +1,7 @@
 <template lang="pug">
-h1 Welcome honorable guest
+div
+  h1 PMDb
+  h3 Peer's Movie Database
 </template>
 
 <script>

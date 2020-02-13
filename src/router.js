@@ -21,21 +21,21 @@ const routes = [
     path: '/movies',
     name: 'Movies',
     component: () =>
-      import(/* webpackChunkName: "movies" */ '@/components/pages/Movies.vue'),
+      import(/* webpackChunkName: "movies" */ '@/components/movies/Movies.vue'),
   },
   {
     path: '/characters',
     name: 'Characters',
     component: () =>
       import(
-        /* webpackChunkName: "characters" */ '@/components/pages/Characters.vue'
+        /* webpackChunkName: "characters" */ '@/components/characters/Characters.vue'
       ),
   },
   {
     path: '/actors',
     name: 'Actors',
     component: () =>
-      import(/* webpackChunkName: "actors" */ '@/components/pages/Actors.vue'),
+      import(/* webpackChunkName: "actors" */ '@/components/actors/Actors.vue'),
   },
 ]
 
@@ -45,11 +45,20 @@ const router = new VueRouter({
   routes,
 })
 
+const routeIsPublic = path => {
+  return (
+    path === '/' ||
+    path === '/movies' ||
+    path === '/actors' ||
+    path === '/characters' ||
+    path === '/login'
+  )
+}
+
 router.beforeEach((to, from, next) => {
-  console.log('to', to)
+  // console.log('to', to)
   // console.log('from', from)
-  if (store.state.signedIn || to.path === '/login' || to.path === '/movies')
-    return next()
+  if (store.state.signedIn || routeIsPublic(to.path)) return next()
   else return next('/login')
 })
 

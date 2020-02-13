@@ -5,6 +5,7 @@ Apollo Client
 use babel-node for playground
 
 # IN PROGRESS
+expand application
 
 # DONE
 GraphQL playground

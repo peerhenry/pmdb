@@ -1,9 +1,4 @@
-type Movie
-  @model(
-    queries: { get: "getMovie", list: "listMovies" }
-    mutations: { create: "createMovie", update: "updateMovie", delete: "deleteMovie" }
-    subscriptions: null
-  ) {
+type Movie @model(subscriptions: null) {
   id: ID!
   title: String!
   description: String
@@ -12,12 +7,7 @@ type Movie
   Crew: [CrewJob] @connection(keyName: "byMovie", fields: ["id"])
 }
 
-type Character
-  @model(
-    queries: { get: "getCharacter", list: "listCharacters" }
-    mutations: { create: "createCharacter", update: "updateCharacter", delete: "deleteCharacter" }
-    subscriptions: null
-  ) {
+type Character @model(subscriptions: null) {
   id: ID!
   name: String!
   description: String
@@ -44,12 +34,7 @@ interface Professional {
   gender: Gender!
 }
 
-type Actor implements Professional
-  @model(
-    queries: { get: "getActor", list: "listActors" }
-    mutations: { create: "createActor", update: "updateActor", delete: "deleteActor" }
-    subscriptions: null
-  ) {
+type Actor implements Professional @model(subscriptions: null) {
   id: ID!
   name: String!
   dateOfBirth: String
@@ -58,12 +43,7 @@ type Actor implements Professional
   roles: [Role] @connection(keyName: "byActor", fields: ["id"])
 }
 
-type CrewMember implements Professional 
-  @model(
-    queries: { get: "getCrewMember", list: "listCrewMembers" }
-    mutations: { create: "createCrewMember", update: "updateCrewMember", delete: "deleteCrewMember" }
-    subscriptions: null
-  ) {
+type CrewMember implements Professional @model(subscriptions: null) {
   id: ID!
   name: String!
   dateOfBirth: String

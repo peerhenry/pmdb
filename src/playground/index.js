@@ -3,7 +3,7 @@ const registerServices = require('@workpop/graphql-proxy').default
 const expressPlayground = require('graphql-playground-middleware-express')
   .default
 const types = require('./schema.js')
-const apiKey = require('apikey.js')
+const apiKey = require('./apikey.js')
 
 const endpoint =
   'https://6ktuupjf2rakra4jo5kkqy66ly.appsync-api.eu-west-1.amazonaws.com/graphql'

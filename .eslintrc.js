@@ -21,5 +21,6 @@ module.exports = {
         jest: true
       }
     }
-  ]
+  ],
+  ignorePatterns: [ "aws-exports.js" ]
 };
