@@ -1,5 +1,5 @@
 <template lang="pug">
-PmdbTable(:items="movies" :attributes="['title', 'description', 'rating']")
+PmdbTable(:items="movies" :attributes="['title', 'description', 'rating']"  @click-item="openMovie")
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     openMovie(movie) {
-      console.log('open movie', movie.id)
+      this.$router.push(`/movie/${movie.id}`)
     },
   },
 }

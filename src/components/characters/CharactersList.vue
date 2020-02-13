@@ -1,5 +1,5 @@
 <template lang="pug">
-PmdbTable(:items="characters" :attributes="['name', 'description']")
+PmdbTable(:items="characters" :attributes="['name', 'description']" @click-item="openCharacter")
 </template>
 
 <script>
@@ -11,8 +11,8 @@ export default {
     characters: Array,
   },
   methods: {
-    openMovie(movie) {
-      console.log('open movie', movie.id)
+    openCharacter(character) {
+      this.$router.push(`/character/${character.id}`)
     },
   },
 }

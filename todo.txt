@@ -1,11 +1,14 @@
 # TODO
+create for all models
+model details page
+couple models in frontend
 routes for history mode
 SSR
 Apollo Client
 use babel-node for playground
 
 # IN PROGRESS
-expand application
 
 # DONE
 GraphQL playground
+list views for all models

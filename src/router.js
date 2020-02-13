@@ -24,6 +24,15 @@ const routes = [
       import(/* webpackChunkName: "movies" */ '@/components/movies/Movies.vue'),
   },
   {
+    path: '/movie/:id',
+    name: 'Movie',
+    component: () =>
+      import(
+        /* webpackChunkName: "movie" */ '@/components/movies/MovieDetailsPage.vue'
+      ),
+    props: true,
+  },
+  {
     path: '/characters',
     name: 'Characters',
     component: () =>
@@ -32,10 +41,28 @@ const routes = [
       ),
   },
   {
+    path: '/character/:id',
+    name: 'Character',
+    component: () =>
+      import(
+        /* webpackChunkName: "movie" */ '@/components/characters/CharacterDetailsPage.vue'
+      ),
+    props: true,
+  },
+  {
     path: '/actors',
     name: 'Actors',
     component: () =>
       import(/* webpackChunkName: "actors" */ '@/components/actors/Actors.vue'),
+  },
+  {
+    path: '/actor/:id',
+    name: 'Actor',
+    component: () =>
+      import(
+        /* webpackChunkName: "movie" */ '@/components/actors/ActorDetailsPage.vue'
+      ),
+    props: true,
   },
 ]
 
