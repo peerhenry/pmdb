@@ -1,0 +1,20 @@
+{
+    "production": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-pmdb-production-215132-authRole",
+            "UnauthRoleArn": "arn:aws:iam::157494525794:role/amplify-pmdb-production-215132-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::157494525794:role/amplify-pmdb-production-215132-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-pmdb-production-215132-deployment",
+            "UnauthRoleName": "amplify-pmdb-production-215132-unauthRole",
+            "StackName": "amplify-pmdb-production-215132",
+            "StackId": "arn:aws:cloudformation:eu-west-1:157494525794:stack/amplify-pmdb-production-215132/740d6ba0-4dd9-11ea-879e-020b33be54b4",
+            "AmplifyAppId": "d39ev6650xpqjy"
+        },
+        "categories": {
+            "auth": {
+                "pmdb52395ef3": {}
+            }
+        }
+    }
+}

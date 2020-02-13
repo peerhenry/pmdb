@@ -1,0 +1,99 @@
+type Movie
+  @model(
+    queries: { get: "getMovie", list: "listMovies" }
+    mutations: { create: "createMovie", update: "updateMovie", delete: "deleteMovie" }
+    subscriptions: null
+  ) {
+  id: ID!
+  title: String!
+  description: String
+  rating: Int
+  Cast: [Role] @connection(keyName: "byMovie", fields: ["id"])
+  Crew: [CrewJob] @connection(keyName: "byMovie", fields: ["id"])
+}
+
+type Character
+  @model(
+    queries: { get: "getCharacter", list: "listCharacters" }
+    mutations: { create: "createCharacter", update: "updateCharacter", delete: "deleteCharacter" }
+    subscriptions: null
+  ) {
+  id: ID!
+  name: String!
+  description: String
+  roles: [Role] @connection(keyName: "byCharacter", fields: ["id"])
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum CrewFunction {
+  DIRECTOR
+  PRODUCER
+  WRITER
+  COMPOSER
+}
+
+interface Professional {
+  id: ID!
+  name: String!
+  dateOfBirth: String
+  dateOfDeath: String
+  gender: Gender!
+}
+
+type Actor implements Professional
+  @model(
+    queries: { get: "getActor", list: "listActors" }
+    mutations: { create: "createActor", update: "updateActor", delete: "deleteActor" }
+    subscriptions: null
+  ) {
+  id: ID!
+  name: String!
+  dateOfBirth: String
+  dateOfDeath: String
+  gender: Gender!
+  roles: [Role] @connection(keyName: "byActor", fields: ["id"])
+}
+
+type CrewMember implements Professional 
+  @model(
+    queries: { get: "getCrewMember", list: "listCrewMembers" }
+    mutations: { create: "createCrewMember", update: "updateCrewMember", delete: "deleteCrewMember" }
+    subscriptions: null
+  ) {
+  id: ID!
+  name: String!
+  dateOfBirth: String
+  dateOfDeath: String
+  gender: Gender!
+  jobs: [CrewJob] @connection(keyName: "byCrewMember", fields: ["id"])
+}
+
+type Role
+  @model
+  @key(name: "byMovie", fields: ["movieID"])
+  @key(name: "byCharacter", fields: ["characterID"])
+  @key(name: "byActor", fields: ["actorID"]) {
+  id: ID!
+  movieID: ID!
+  characterID: ID!
+  actorID: ID!
+  movie: Movie! @connection(fields: ["movieID"])
+  character: Character! @connection(fields: ["characterID"])
+  actor: Actor! @connection(fields: ["actorID"])
+}
+
+type CrewJob
+  @model
+  @key(name: "byMovie", fields: ["movieID"])
+  @key(name: "byCrewMember", fields: ["crewMemberID"]) {
+  id: ID!
+  movieID: ID!
+  crewMemberID: ID!
+  function: CrewFunction!
+  movie: Movie! @connection(fields: ["movieID"])
+  actor: CrewMember! @connection(fields: ["crewMemberID"])
+}
