@@ -1,0 +1,4 @@
+GraphQL playground
+routes for history mode
+SSR
+Apollo Client
