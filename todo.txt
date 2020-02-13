@@ -1,4 +1,10 @@
-GraphQL playground
+# TODO
 routes for history mode
 SSR
 Apollo Client
+use babel-node for playground
+
+# IN PROGRESS
+
+# DONE
+GraphQL playground

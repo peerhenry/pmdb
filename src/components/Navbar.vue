@@ -2,9 +2,9 @@
 .navbar
   .nav-list
     router-link(to="/") Home
-    router-link(to="/Movies") Movies
-    router-link(to="/Actors") Actors
-    router-link(to="/Characters") Characters
+    router-link(to="/movies") Movies
+    router-link(to="/actors") Actors
+    router-link(to="/characters") Characters
     router-link(to="/login") Login/logout
 </template>
 

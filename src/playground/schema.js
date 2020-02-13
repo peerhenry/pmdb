@@ -1,6 +1,6 @@
-const { gql } = require('apollo-server-express')
+// const { gql } = require('apollo-server-express')
 
-module.exports = gql`
+module.exports = `
   schema {
     query: Query
     mutation: Mutation

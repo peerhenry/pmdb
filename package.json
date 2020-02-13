@@ -10,6 +10,7 @@
     "playground": "node src/playground/index.js"
   },
   "dependencies": {
+    "@workpop/graphql-proxy": "^2.4.0",
     "apollo-server-express": "^2.10.0",
     "aws-amplify": "^2.2.4",
     "aws-amplify-vue": "^1.1.4",

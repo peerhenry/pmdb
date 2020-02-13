@@ -73,7 +73,7 @@ type CrewMember implements Professional
 }
 
 type Role
-  @model
+  @model(subscriptions: null)
   @key(name: "byMovie", fields: ["movieID"])
   @key(name: "byCharacter", fields: ["characterID"])
   @key(name: "byActor", fields: ["actorID"]) {
@@ -87,7 +87,7 @@ type Role
 }
 
 type CrewJob
-  @model
+  @model(subscriptions: null)
   @key(name: "byMovie", fields: ["movieID"])
   @key(name: "byCrewMember", fields: ["crewMemberID"]) {
   id: ID!

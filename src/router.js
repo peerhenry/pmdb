@@ -46,10 +46,11 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (store.state.signedIn || to.path === '/login') return next()
-  else return next('/login')
-  // console.log('to', to)
+  console.log('to', to)
   // console.log('from', from)
+  if (store.state.signedIn || to.path === '/login' || to.path === '/movies')
+    return next()
+  else return next('/login')
 })
 
 export default router
